@@ -24,31 +24,43 @@ def create_worm(x, y, colour='white'):
 
 
 def move_worm(worm, degrees=0):
-    # save heading for next segment
-    next_segment_heading = worm.heading()
-    # set head new heading
+    """Set head new heading and move worm."""
+    turtle.update()
     worm.setheading(degrees)
     for segment in worm_list:
         segment.forward(20)
-        turtle.update()
-    worm_list[1]
+    turtle.update()
+    shift_headings()
+
+
+def shift_headings():
+    """Shift worm headings."""
+    heading_list = []
+    for worm in worm_list[:-1]:
+        heading_list.append(worm.heading())
+    for index, heading in enumerate(heading_list):
+        worm_list[index + 1].setheading(heading)
 
 
 
 def move_up():
-    move_worm(worm_list[0], 90)
+    if worm_list[0].heading() != 270:
+        move_worm(worm_list[0], 90)
 
 
 def move_right():
-    move_worm(worm_list[0], 0)
+    if worm_list[0].heading() != 180:
+        move_worm(worm_list[0], 0)
 
 
 def move_left():
-    move_worm(worm_list[0], 180)
+    if worm_list[0].heading() != 0:
+        move_worm(worm_list[0], 180)
 
 
 def move_down():
-    move_worm(worm_list[0], 270)
+    if worm_list[0].heading() != 90:
+        move_worm(worm_list[0], 270)
 
 
 # orininal positions
@@ -65,7 +77,6 @@ game_is_on = True
 while game_is_on:
     window.update()
     time.sleep(0.1)
-    # change heading of first worm if needed and move
     # Collect key-events
     turtle.listen()
     turtle.onkey(move_down, key='Down')
