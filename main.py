@@ -1,7 +1,7 @@
 import turtle
 from turtle import Turtle, Screen
 import time
-
+from random import randint
 # create window
 window = Screen()
 window.setup(width=600, height=600)
@@ -11,6 +11,7 @@ window.title('Snake Game')
 # Turn off .tracer()
 window.tracer(0)
 worm_list = []
+food_list = []
 
 
 def create_worm(x, y, colour='white'):
@@ -61,6 +62,12 @@ def move_left():
 def move_down():
     if worm_list[0].heading() != 90:
         move_worm(worm_list[0], 270)
+
+
+def food():
+    x = randint(0, 550)
+    y = randint(0, 550)
+    food_list+= create_worm(x, y, colour='cyan')
 
 
 # orininal positions
