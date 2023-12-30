@@ -30,6 +30,7 @@ def move_worm(worm, degrees=0):
     worm.setheading(degrees)
     for segment in worm_list:
         segment.forward(20)
+    eat_food()
     turtle.update()
     shift_headings()
 
@@ -67,7 +68,20 @@ def move_down():
 def food():
     x = randint(0, 550)
     y = randint(0, 550)
-    food_list+= create_worm(x, y, colour='cyan')
+    new_food = create_worm(x, y, colour='cyan')
+    food_list.append(new_food)
+
+
+def eat_food():
+    for food in food_list:
+        if worm_list[0].position() == food.position():
+            grow_worm()
+            food_list.remove(food)
+
+def grow_worm():
+    grow = worm_list[0].clone()
+    grow.forward(20)
+    worm_list.insert(0, grow)
 
 
 # orininal positions
@@ -79,9 +93,10 @@ for _ in range(3):
     new_segment = create_worm(x_position, y_position)
     worm_list.append(new_segment)
     x_position += -20
-print(worm_list)
+
 game_is_on = True
 while game_is_on:
+    food()
     window.update()
     time.sleep(0.1)
     # Collect key-events
