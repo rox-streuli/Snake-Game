@@ -1,7 +1,7 @@
 import turtle
 from turtle import Turtle, Screen
 import time
-from random import randint
+from random import randrange
 # create window
 window = Screen()
 window.setup(width=600, height=600)
@@ -66,8 +66,8 @@ def move_down():
 
 
 def food():
-    x = randint(0, 550)
-    y = randint(0, 550)
+    x = randrange(0, 540, 20)
+    y = randrange(0, 540, 20)
     new_food = create_worm(x, y, colour='cyan')
     food_list.append(new_food)
 
