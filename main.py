@@ -70,18 +70,22 @@ def food():
     y = randrange(0, 540, 20)
     new_food = create_worm(x, y, colour='cyan')
     food_list.append(new_food)
+    turtle.update()
 
 
 def eat_food():
-    for food in food_list:
-        if worm_list[0].position() == food.position():
-            grow_worm()
-            food_list.remove(food)
+    if food_list:
+        for food in food_list:
+            if worm_list[0].position() == food.position():
+                grow_worm()
+                food_list.remove(food)
+
 
 def grow_worm():
     grow = worm_list[0].clone()
     grow.forward(20)
     worm_list.insert(0, grow)
+
 
 
 # orininal positions
@@ -94,9 +98,12 @@ for _ in range(3):
     worm_list.append(new_segment)
     x_position += -20
 
+# create food every 10 seconds
+turtle.update()
+turtle.ontimer(food, 10000)
+
 game_is_on = True
 while game_is_on:
-    food()
     window.update()
     time.sleep(0.1)
     # Collect key-events
