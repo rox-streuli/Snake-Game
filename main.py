@@ -2,6 +2,7 @@ import turtle
 from turtle import Turtle, Screen
 import time
 from random import randrange
+
 # create window
 window = Screen()
 window.setup(width=600, height=600)
