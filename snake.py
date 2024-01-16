@@ -1,5 +1,7 @@
 from turtle import Turtle
-
+# Constants help to refactor the code in the future
+SARTING_POSITIONS = [(0, 0), (-20, 0), (-40, 0)]
+MOVE_DISTANCE = 20
 
 class CreateSegment:
     def __init__(self, start):
@@ -12,10 +14,9 @@ class CreateSegment:
 
 class Snake:
     """Intantiate a snake body."""
-    starting_position = [(0, 0), (-20, 0), (-40, 0)]
     def __init__(self):
         self.body = []
-        for start_pos in Snake.starting_position:
+        for start_pos in SARTING_POSITIONS:
             self.body.append(CreateSegment(start_pos))
 
     def move(self):
@@ -23,5 +24,4 @@ class Snake:
         for section in range(len(self.body) -1, 0, -1):
             new_pos = self.body[section -1].segment.position()
             self.body[section].segment.setposition(new_pos)
-        self.body[0].segment.forward(20)
-
+        self.body[0].segment.forward(MOVE_DISTANCE)
