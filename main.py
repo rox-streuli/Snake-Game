@@ -44,6 +44,7 @@ while game_is_on:
     x = my_snake.head.xcor()
     y = my_snake.head.ycor()
     if x < -280 or x > 280 or y < -280 or y > 280:
+        scoreboard_banner.game_over()
         game_is_on = False
 
 
