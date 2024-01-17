@@ -9,6 +9,6 @@ class Scoreboard(Turtle):
         self.color('lightgreen')
         self.refresh_scoreboard()
 
-    def refresh_scoreboard(self):
-        self.write("Score: 0", align='center', font=('verdana', 12,
+    def refresh_scoreboard(self, score=0):
+        self.write(f"Score: {score}", align='center', font=('verdana', 12,
                                                      'normal'))
