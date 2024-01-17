@@ -40,4 +40,11 @@ while game_is_on:
         scoreboard_banner.increase_scoreboard()
         next_food.refresh()
 
+    # Detect collisin with wall
+    x = my_snake.head.xcor()
+    y = my_snake.head.ycor()
+    if x < -280 or x > 280 or y < -280 or y > 280:
+        game_is_on = False
+
+
 window.exitonclick()
