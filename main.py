@@ -1,5 +1,6 @@
 from turtle import Screen
 from snake import Snake
+from food import Food
 import time
 
 # create window
@@ -13,6 +14,10 @@ window.tracer(0)
 
 # Initiate snake
 my_snake = Snake()
+
+# Initiate food
+next_food = Food()
+
 # Collect key-events
 window.listen()
 window.onkey(my_snake.head_down, key='Down')
@@ -25,5 +30,8 @@ while game_is_on:
     window.update()
     time.sleep(0.1)
     my_snake.move()
+
+    # Detect collision with food
+
 
 window.exitonclick()
