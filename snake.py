@@ -24,7 +24,7 @@ class Snake:
         self.body.append(new_segment)
 
     def extend(self):
-        pass
+        self.add_segment(self.body[-1].position())
 
     def move(self):
         """Shift position of each segment in the snake body."""
