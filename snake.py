@@ -13,12 +13,18 @@ class Snake:
     def create_snake(self):
         """Create starting snake body."""
         for start_pos in SARTING_POSITIONS:
-            new_segment = Turtle(shape='square')
-            new_segment.color('white')
-            new_segment.penup()
-            new_segment.setposition(start_pos)
-            self.body.append(new_segment)
+            self.add_segment(start_pos)
 
+
+    def add_segment(self, position):
+        new_segment = Turtle(shape='square')
+        new_segment.color('white')
+        new_segment.penup()
+        new_segment.setposition(position)
+        self.body.append(new_segment)
+
+    def extend(self):
+        pass
 
     def move(self):
         """Shift position of each segment in the snake body."""
