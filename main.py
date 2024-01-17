@@ -13,6 +13,12 @@ window.tracer(0)
 
 # Initiate snake
 my_snake = Snake()
+# Collect key-events
+window.listen()
+window.onkey(my_snake.head_down, key='Down')
+window.onkey(my_snake.head_up, key='Up')
+window.onkey(my_snake.head_right, key='Right')
+window.onkey(my_snake.head_left, key='Left')
 
 game_is_on = True
 while game_is_on:
