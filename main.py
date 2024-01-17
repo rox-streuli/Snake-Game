@@ -1,6 +1,7 @@
 from turtle import Screen
 from snake import Snake
 from food import Food
+from scoreboard import Scoreboard
 import time
 
 # create window
@@ -17,6 +18,9 @@ my_snake = Snake()
 
 # Initiate food
 next_food = Food()
+
+# Initiate scoreboard
+scoreboard_banner = Scoreboard()
 
 # Collect key-events
 window.listen()
