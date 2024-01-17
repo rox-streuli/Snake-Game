@@ -7,8 +7,9 @@ class Scoreboard(Turtle):
         self.penup()
         self.goto(0, 280)
         self.color('lightgreen')
+        self.score = 0
         self.refresh_scoreboard()
 
-    def refresh_scoreboard(self, score=0):
-        self.write(f"Score: {score}", align='center', font=('verdana', 12,
+    def refresh_scoreboard(self):
+        self.write(f"Score: {self.score}", align='center', font=('verdana', 12,
                                                      'normal'))
