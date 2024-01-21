@@ -32,7 +32,7 @@ window.onkey(my_snake.head_left, key='Left')
 game_is_on = True
 while game_is_on:
     window.update()
-    time.sleep(0.1)
+    time.sleep(0.3)
     my_snake.move()
 
     # Detect collision with food
@@ -44,7 +44,7 @@ while game_is_on:
     # Detect collisin with wall
     x = my_snake.head.xcor()
     y = my_snake.head.ycor()
-    if x < -280 or x > 280 or y < -280 or y > 280:
+    if x < -290 or x > 290 or y < -290 or y > 290:
         scoreboard_banner.game_over()
         game_is_on = False
 
