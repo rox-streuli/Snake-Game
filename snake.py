@@ -17,6 +17,7 @@ class Snake:
 
 
     def add_segment(self, position):
+        """Create a snake segment."""
         new_segment = Turtle(shape='square')
         new_segment.color('white')
         new_segment.penup()
@@ -24,6 +25,7 @@ class Snake:
         self.body.append(new_segment)
 
     def extend(self):
+        """Add a segment after eating food."""
         self.add_segment(self.body[-1].position())
 
     def move(self):
