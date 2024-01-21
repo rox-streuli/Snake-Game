@@ -32,7 +32,7 @@ window.onkey(my_snake.head_left, key='Left')
 game_is_on = True
 while game_is_on:
     window.update()
-    time.sleep(0.3)
+    time.sleep(scoreboard_banner.current_speed)
     my_snake.move()
 
     # Detect collision with food
