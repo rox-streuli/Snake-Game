@@ -18,6 +18,7 @@ class Scoreboard(Turtle):
         self.level = 1
         self.current_speed = 0.4
         self.high_score = 0
+        self.save_high_score_in_file()
         self.refresh_scoreboard()
 
     def refresh_scoreboard(self):
@@ -68,12 +69,16 @@ class Scoreboard(Turtle):
         self.score = 0
         self.level = 1
         self.current_speed = 0.4
+        self.read_high_score_from_file()
         self.refresh_scoreboard()
 
-    # def save_high_score_in_file(self):
-    #     with open("data.txt", 'w') as file:
-    #         pass
+    def save_high_score_in_file(self):
+        with open("data.txt", mode='w') as file:
+            file.write(f"{self.high_score}")
 
+    def read_high_score_from_file(self):
+        with open("data.txt") as data:
+            self.high_score = int(data.read())
 
 class Guide(Turtle):
     """Instantiate game commands guide."""
