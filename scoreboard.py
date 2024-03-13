@@ -38,6 +38,7 @@ class Scoreboard(Turtle):
         """Saves high score."""
         if self.score > self.high_score:
             self.high_score = self.score
+            self.save_high_score_in_file()
 
     def check_level(self):
         """Check if player reach boundary scores,
