@@ -17,10 +17,12 @@ class Scoreboard(Turtle):
         self.level = 1
         self.refresh_scoreboard()
         self.current_speed = 0.4
+        self.high_score = 0
 
     def refresh_scoreboard(self):
         """Update current level and score banner."""
-        self.write(f"Level: {self.level}\tScore: {self.score}",
+        self.write(f"Level: {self.level}\tScore: {self.score}\tHigh Score: "
+                   f"{self.high_score}",
                    align=ALIGMENT, font=FONT)
 
     def increase_scoreboard(self):
