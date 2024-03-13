@@ -17,7 +17,8 @@ class Scoreboard(Turtle):
         self.score = 0
         self.level = 1
         self.current_speed = 0.4
-        self.high_score = 0
+        self.read_high_score_from_file()
+        self.game_on = True
         self.save_high_score_in_file()
         self.refresh_scoreboard()
 
@@ -63,6 +64,10 @@ class Scoreboard(Turtle):
                    f"{self.high_score}",
                    align=ALIGMENT, font=FONT)
         self.reset_banner()
+
+    def exit_game(self, message):
+        self.game_over(message)
+        self.game_on = False
 
     def reset_banner(self):
         self.clear()
