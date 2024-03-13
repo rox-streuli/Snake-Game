@@ -4,11 +4,6 @@ from food import Food
 from scoreboard import Scoreboard, Guide
 import time
 
-
-def quit_game():
-    game_is_on = False
-
-
 # create window
 window = Screen()
 window.setup(width=600, height=600)
@@ -27,6 +22,12 @@ next_food = Food()
 # create main scoreboard
 scoreboard_banner = Scoreboard()
 
+
+# after user press 'q' key
+def quit_game():
+    scoreboard_banner.exit_game("Closing game...")
+
+
 # create game guide
 guide = Guide()
 
@@ -40,8 +41,7 @@ window.onkey(my_snake.head_left, key='Left')
 
 window.onkey(quit_game, key='q')
 
-game_is_on = True
-while game_is_on:
+while scoreboard_banner.game_on:
     window.update()
     time.sleep(scoreboard_banner.current_speed)
     my_snake.move()
@@ -61,12 +61,12 @@ while game_is_on:
         scoreboard_banner.reset_banner()
 
     # Detect collision with tail
-    for segment in my_snake.body[4:]:
+    for segment in my_snake.body[3:]:
         if my_snake.head.distance(segment) < 10:
             scoreboard_banner.game_over()
             my_snake.reset_snake()
             scoreboard_banner.reset_banner()
 
-scoreboard_banner.game_over()
+window.update()
 
 window.exitonclick()
