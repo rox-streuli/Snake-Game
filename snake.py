@@ -24,6 +24,13 @@ class Snake:
         new_segment.setposition(position)
         self.body.append(new_segment)
 
+    def reset_snake(self):
+        for idx, section in enumerate(self.body):
+            self.body[idx].hideturtle()
+        self.body.clear()
+        self.create_snake()
+        self.head = self.body[0]
+
     def extend(self):
         """Add a segment after eating food."""
         self.add_segment(self.body[-1].position())
