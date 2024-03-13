@@ -49,7 +49,6 @@ class Scoreboard(Turtle):
     def check_end_game(self):
         if self.score == WINNER:
             self.game_over("YOU WON!")
-            self.score = 0
         else:
             self.check_level()
             self.clear()
@@ -61,16 +60,20 @@ class Scoreboard(Turtle):
         self.write(f"**** {win} ****\nScore {self.score}\tHigh Score "
                    f"{self.high_score}",
                    align=ALIGMENT, font=FONT)
+        self.reset_banner()
 
     def reset_banner(self):
-        self.reset()
+        self.clear()
+        self.goto(0, 280)
         self.score = 0
         self.level = 1
         self.current_speed = 0.4
+        self.refresh_scoreboard()
 
     # def save_high_score_in_file(self):
     #     with open("data.txt", 'w') as file:
     #         pass
+
 
 class Guide(Turtle):
     """Instantiate game commands guide."""
